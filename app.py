@@ -8,6 +8,8 @@ from datetime import date, timedelta, datetime
 from PIL import Image, UnidentifiedImageError
 import requests
 import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib
 import matplotlib.image as mpimg
 
 st.title('MeteoStat')

@@ -1,4 +1,5 @@
 
+from asyncio import open_unix_connection
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import streamlit as st
@@ -7,6 +8,7 @@ from datetime import date, timedelta, datetime
 from PIL import Image, UnidentifiedImageError
 import requests
 import pandas as pd
+import matplotlib.image as mpimg
 
 st.title('MeteoStat')
 
@@ -61,9 +63,15 @@ def scrapping_images (start, finish) :
     print(missing_times)
     return saved_images
 
+def open_data(date_save):
+    print('Open '+date_save)
+    img = mpimg.imread(f"images/radar{date_save}.png")
+    return img
+
 if st.button('Scrapping'):
 # print is visible in the server output, not in the page
     start = datetime(2017, 5, 1, 00)
-    finish = datetime(2017, 9, 30, 23, 45)
+    finish = datetime(2017, 5, 1, 23, 45)
 
     scrapping_images (start, finish)
+    open_data()

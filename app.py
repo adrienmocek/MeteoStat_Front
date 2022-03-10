@@ -32,7 +32,7 @@ def open_save_data(url, date_save):
     response = requests.get(url)
 
     img = Image.open(BytesIO(response.content))
-    img.save( f"images/radar{date_save}.png")
+    img.save( f"./radar{date_save}.png")
     pass
 
 def scrapping_images (start, finish) :

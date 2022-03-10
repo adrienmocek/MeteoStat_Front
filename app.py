@@ -60,3 +60,10 @@ def scrapping_images (start, finish) :
     pd.DataFrame(missing_times).to_pickle(missing_data_name)
     print(missing_times)
     return saved_images
+
+if st.button('Scrapping'):
+# print is visible in the server output, not in the page
+    start = datetime(2017, 5, 1, 00)
+    finish = datetime(2017, 9, 30, 23, 45)
+
+    scrapping_images (start, finish)
